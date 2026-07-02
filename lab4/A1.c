@@ -17,16 +17,16 @@ void heapify(int arr[], int n, int i){
     
     if (largest != i)
     {
-        int temp = i;
-        i = largest;
-        largest = temp;
+        int temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
 
-        heapify(arr, n, i);
+        heapify(arr, n, largest);
     }
 }
 
 void main(){
-    int n;
+    int n = 5;
     int arr[5] = {1,2,3,4,5};
     
     for (int i = n/2 - 1; i >= 0; i--)
@@ -41,5 +41,10 @@ void main(){
         arr[i] = temp;
 
         heapify(arr, i, 0);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
     }
 }
